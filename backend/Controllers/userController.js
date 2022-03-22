@@ -20,11 +20,13 @@ class User {
     let { email, password } = req.body;
 
     // query to get the data from db
+    console.log(email);
     client.query(
-      `select * from authentication where email=$1`,
+      `select * from public.authentication where email=$1`,
+      
       [email],
       (err, resp) => {
-      
+     console.log(resp);
         if (err) {
           console.log(err);
           res.status(400).json({ message: "Error in DB" });
@@ -32,8 +34,9 @@ class User {
           res.status(404).json({ message: "User does not exists" });
         } else {
           // validate the login details
-          let userData = resp.rows[5];
-          var isValid = bcrypt.compareSync(password, userData.password);
+          let userData = resp.rows[0];
+          // var isValid = bcrypt.compareSync(password, userData.password);
+          var isValid =(password==userData.password);
           if (isValid) {
             // after validation generate a JWT token
             let token = jwt.sign({ username: userData.email }, privateKey, {

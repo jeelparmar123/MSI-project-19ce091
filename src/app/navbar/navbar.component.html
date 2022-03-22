@@ -1,9 +1,12 @@
-<mat-toolbar color="primary" class="page-header">
+<mat-toolbar color="" class="page-header">
   <div fxHide.gt-xs>
-    <button mat-icon-button (click)="onToggleSidenav()">
+    <!-- <button mat-icon-button (click)="onToggleSidenav()">
       <mat-icon>menu</mat-icon>
-    </button>
+    </button> -->
   </div>
+  <button mat-button [matMenuTriggerFor]="addProjectmenu">
+    <mat-icon>add</mat-icon>Project mapping
+  </button>
   <img
     class="logo"
     src="../../assets/images/MSI_logo.png"
@@ -11,9 +14,7 @@
   />
   <span class="spacer"></span>
   <div fxFlex fxHide.xs>
-    <button mat-button [matMenuTriggerFor]="addProjectmenu">
-      <mat-icon>add</mat-icon>Add Projects
-    </button>
+  
     <span style="margin: 0 0.75%"></span>
     <mat-menu #addProjectmenu="matMenu" yPosition="below">
       <button mat-menu-item>
