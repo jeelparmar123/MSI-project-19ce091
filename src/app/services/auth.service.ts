@@ -12,6 +12,16 @@ export class AuthService {
     return this.http.post<any>(this.loginURL,user);
   }
 
+  addProjectMapping(projectMapping:{}){
+    return this.http.post<any>("http://localhost:3000/projectmappinginsert",projectMapping);
+  }
+
+  getProjectMapping(){
+    return this.http.get<any>("http://localhost:3000/projectmappingget");
+  }
+  
+
+
   logout(){
     sessionStorage.removeItem("token");
   } 
@@ -26,4 +36,6 @@ export class AuthService {
   getToken(){
     return sessionStorage.getItem("token");
   }
+
+
 }

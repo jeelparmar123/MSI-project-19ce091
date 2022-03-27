@@ -25,6 +25,11 @@ router.post("/projectmappinginsert", (req, res) => {
   projectmappingcontroller.addMapping(req, res);
 });
 
+router.get("/projectmappingget", (req, res) => {
+
+  projectmappingcontroller.getMapping(req, res);
+});
+
 router.post("/projectmappingupdate",(req, res) => {
   projectmappingcontroller.updateMapping(req, res);
 });

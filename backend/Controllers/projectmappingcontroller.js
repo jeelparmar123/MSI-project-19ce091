@@ -4,7 +4,7 @@ const client = require("../database/db");
 class ProjectMapping {
     addMapping(req, res) {
         let { projectName, employeeName } = req.body;
-        console.log(projectName, employeeName);
+        // console.log(projectName, employeeName);
 
         client.query(
             `INSERT INTO projectmapping(
@@ -24,9 +24,30 @@ class ProjectMapping {
             }
         );
     }
+
+     getMapping(req, res) {
+      
+        // console.log(projectName, employeeName);
+
+        client.query(
+            `select * from projectmapping`,
+
+            (err, resp) => {
+                console.log(err);
+                if (err) {
+                    res.status(400).json({ message: "Error in DB" });
+                }
+                else{
+                    res.status(200).json(resp.rows);
+                }
+
+            }
+        );
+    }
+
     updateMapping(req, res) {
         let { projectName, employeeName } = req.body;
-        console.log(projectName, employeeName);
+        // console.log(projectName, employeeName);
 
         client.query(
             ` UPDATE projectmapping
@@ -40,7 +61,7 @@ class ProjectMapping {
                     res.status(400).json({ message: "Error in DB" });
                 }
                 else{
-                    res.status(201).json({ message:"successful"})
+                    res.status(200).json({ message:"successful"})
                 }
 
             }
@@ -50,7 +71,7 @@ class ProjectMapping {
     deleteMapping(req,res){
         let{projectName, employeeName}= req.body;
 
-        console.log(projectName,employeeName);
+        // console.log(projectName,employeeName);
 
         client.query(
             `DELETE FROM projectmapping WHERE employeeName = ($1) `,
@@ -61,7 +82,7 @@ class ProjectMapping {
                     res.status(400).json({message: "Err in DB"});
                 }
                 else{
-                    res.status(400).json({message: "successful in DB"});
+                    res.status(200).json({message: "successful in DB"});
                 }
             }
 
