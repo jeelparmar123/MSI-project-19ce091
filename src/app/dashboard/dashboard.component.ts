@@ -13,18 +13,7 @@ export class DashboardComponent implements OnInit {
  
 
   ngOnInit(): void {
-    this._authService.getProjectMapping().subscribe(
-      res => {
-        console.log(res)
-       this.data=res;
-
-       console.log(this.data);
-       
-      },
-      err =>{ 
-        console.log(err.error.message);
-      }
-    )
+    
   }
 
 }

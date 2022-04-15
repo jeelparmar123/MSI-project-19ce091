@@ -25,32 +25,12 @@
           <input type="text" matInput formControlName="product" />
 
         </mat-form-field>
-        <!-- 
-          <mat-form-field class="full-width" appearance="outline" color="#white">
-            <mat-label>Employee Name</mat-label>
-          
-            <input type="text" matInput formControlName="users" />
-           
-          </mat-form-field> -->
 
-        <mat-form-field class="example-chip-list" appearance="fill">
-          <mat-label>Employees</mat-label>
-          <mat-chip-list #chipList aria-label="Users selection">
-            <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)">
-              {{fruit}}
-              <button matChipRemove>
-                <mat-icon>cancel</mat-icon>
-              </button>
-            </mat-chip>
-            <input placeholder="New Employee..." #fruitInput [formControl]="userCtrl" [matAutocomplete]="auto"
-              [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-              (matChipInputTokenEnd)="add($event)">
-          </mat-chip-list>
-          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-            <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
-              {{fruit}}
-            </mat-option>
-          </mat-autocomplete>
+        <mat-form-field class="full-width" appearance="outline" color="#white">
+          <mat-label>Employee Name</mat-label>
+          <!-- <mat-icon matPrefix style="margin-right: 5px">people</mat-icon> -->
+          <input type="text" matInput formControlName="users" />
+
         </mat-form-field>
 
         <br />

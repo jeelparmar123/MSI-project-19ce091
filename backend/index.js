@@ -5,10 +5,11 @@ var router = require("./routes/routes");
 var corsOptions = {
   origin: "http://localhost:4200",
   optionsSuccessStatus: 200, // For legacy browser support
-  methods: "GET, PUT, POST",
+  methods: "GET, PUT, POST,DELETE",
 };
 
 app.use(cors(corsOptions));
+
 app.use(
   express.urlencoded({
     extended: true,
