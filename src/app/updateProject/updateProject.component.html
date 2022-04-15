@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<div>
+  <mat-card>
+
+    <mat-card-content>
+
+      <form (ngSubmit)="onSubmit()" name="addProjectForm" [formGroup]="addProjectForm">
+        <mat-form-field class="full-width" appearance="outline" color="#white">
+          <mat-label>Project Name</mat-label>
+          <!-- <mat-icon matPrefix style="margin-right: 5px">people</mat-icon> -->
+          <input type="text" matInput formControlName="projectName" />
+
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline" color="#white">
+          <mat-label>Dept Code</mat-label>
+          <!-- <mat-icon matPrefix style="margin-right: 5px">people</mat-icon> -->
+          <input type="text" matInput formControlName="deptCode" />
+
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline" color="#white">
+          <mat-label>Product</mat-label>
+          <!-- <mat-icon matPrefix style="margin-right: 5px">people</mat-icon> -->
+          <input type="text" matInput formControlName="product" />
+
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline" color="#white">
+          <mat-label>Employee Name</mat-label>
+          <!-- <mat-icon matPrefix style="margin-right: 5px">people</mat-icon> -->
+          <input type="text" matInput formControlName="users" />
+
+        </mat-form-field>
+
+        <br />
+        <button mat-raised-button color="#fafafa" type="submit">
+          Save
+        </button>
+      </form>
+
+
+    </mat-card-content>
+  </mat-card>
+</div>

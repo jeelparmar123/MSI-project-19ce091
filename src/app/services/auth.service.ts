@@ -4,26 +4,56 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
-  
+
   private loginURL = "http://localhost:3000/login";
   constructor(private http: HttpClient) { }
 
-  loginUser(user:{}){
-    return this.http.post<any>(this.loginURL,user);
+  loginUser(user: {}) {
+    return this.http.post<any>(this.loginURL, user);
   }
 
-  logout(){
-    sessionStorage.removeItem("token");
-  } 
+  bulkimport(projectMappings: { projectname: string; employeename: string; }[]) {
+    return this.http.post<any>("http://localhost:3000/bulkimport", projectMappings);
+  }
 
-  isLoggedIn(){
+  addProjectMapping(projectMapping: { projectName: any, users: any, deptCode: any, product: any }) {
+    return this.http.post<any>("http://localhost:3000/projectmappinginsert", projectMapping);
+  }
+
+  getUsers() {
+    return this.http.get<any>("http://localhost:3000/users");
+  }
+
+  updateProjectMapping(projectMapping: { projectName: any, users: any, deptCode: any, product: any, id: any }) {
+    return this.http.post<any>("http://localhost:3000/projectmappingupdate", projectMapping);
+  }
+  deleteProjectMapping(id: any) {
+    return this.http.delete<any>("http://localhost:3000/projectmappingdelete/" + id);
+  }
+
+  getProjectMapping() {
+    return this.http.get<any>("http://localhost:3000/projectmappingget");
+  }
+
+  getProjectMappingbyid(id: any) {
+    return this.http.get<any>("http://localhost:3000/projectmappinggetbyid/" + id);
+  }
+
+
+  logout() {
+    sessionStorage.removeItem("token");
+  }
+
+  isLoggedIn() {
     return !!sessionStorage.getItem("token");
   }
 
-  setToken(token:string){
-    sessionStorage.setItem("token",token);
+  setToken(token: string) {
+    sessionStorage.setItem("token", token);
   }
-  getToken(){
+  getToken() {
     return sessionStorage.getItem("token");
   }
+
+
 }

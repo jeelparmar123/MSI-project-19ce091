@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+<table id="pm">
+    <tr>
+        <th>
+            Email
+        </th>
+        <th>
+            UserName
+        </th>
+        <th>
+            FirstName
+        </th>
+        <th>
+            LastName
+        </th>
+    </tr>
+
+    <tr *ngFor="let item of data">
+        <td>
+            {{item.email}}
+        </td>
+        <td>
+            {{item.username}}
+        </td>
+
+        <td>
+            {{item.firstName}}
+        </td>
+
+        <td>
+            {{item.lastName}}
+        </td>
+    </tr>
+</table>
