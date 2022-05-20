@@ -163,5 +163,32 @@ class ProjectMapping {
 
         );
     }
+
+    deleteMappingbulk(req, res) {
+        let ids = [] = req.body;
+
+        // console.log(projectName,employeeName);
+        console.log(ids);
+
+        for (const item of ids) {
+            client.query(
+                `DELETE FROM project WHERE id = $1 `,
+                 [item],
+                (err, resp) => {
+                    // console.log(resp);
+                    if (err) {
+                        console.log(err)
+                        // res.status(400).json({ message: "Err in DB" });
+                    }
+                    else {
+                        // res.status(200).json({ message: "successful in DB" });
+                    }
+                }
+    
+            );
+        }
+        res.status(200).json({ message: "successful" })
+        
+    }
 }
 module.exports = ProjectMapping;

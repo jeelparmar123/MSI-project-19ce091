@@ -31,6 +31,14 @@ export class AuthService {
     return this.http.delete<any>("http://localhost:3000/projectmappingdelete/" + id);
   }
 
+  deleteProjectMappingBulk(ids: number[]) {
+    console.log(ids);
+    let options = {
+      body: ids
+    }
+    return this.http.delete<any>("http://localhost:3000/projectmappingdeletebulk/", options);
+  }
+
   getProjectMapping() {
     return this.http.get<any>("http://localhost:3000/projectmappingget");
   }
