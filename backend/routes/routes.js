@@ -51,6 +51,10 @@ router.delete("/projectmappingdelete/:id", (req, res) => {
   projectmappingcontroller.deleteMapping(req, res);;
 });
 
+router.delete("/projectmappingdeletebulk", (req, res) => {
+  projectmappingcontroller.deleteMappingbulk(req, res);;
+});
+
 
 
 module.exports = router;

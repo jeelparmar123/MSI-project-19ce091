@@ -1,6 +1,10 @@
 <app-navbar></app-navbar>
+<br>
+<button mat-raised-button color="primary" (click)="export()">Export Data</button>&nbsp;
+<button mat-raised-button color="warn" (click)="bulkDelete()">Delete Multiples</button><br><br>
 <table id="pm">
     <tr>
+        <th>Select Data</th>
         <th>
             Project Name
         </th>
@@ -20,6 +24,9 @@
     </tr>
 
     <tr *ngFor="let item of data">
+        <td>
+            <input type="checkbox" id="ir" value=item.id (change)="addOrRemove(item)"/>
+        </td>
         <td>
             {{item.projectname}}
         </td>
@@ -42,6 +49,8 @@
         <td>
             <button mat-raised-button color="primary" [routerLink]="['/updateProject',item.id]">Update</button> &nbsp;
             <button mat-raised-button color="warn" (click)="delete(item.id)">Delete</button>
+    
         </td>
+       
     </tr>
 </table>

@@ -11,8 +11,9 @@ import { UsersComponent } from './userManagement/users.component';
 
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
-    { path: 'dashboard', component: DashboardComponent },
-    // ,canActivate:[AuthGuard]}
+    { path: 'dashboard', component: DashboardComponent},
+    //  ,canActivate:[AuthGuard]},
+  
     { path: 'addProject', component: AddprojectComponent },
     { path: '', redirectTo: '/login', pathMatch: 'full' },
 
